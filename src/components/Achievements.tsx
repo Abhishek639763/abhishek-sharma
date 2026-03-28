@@ -1,123 +1,59 @@
 import React from 'react';
-import { Award, Users, Cloud, Trophy } from 'lucide-react';
+import { Award, Star, Trophy, ExternalLink } from 'lucide-react';
+import { achievementsData } from '../data/portfolioData';
 
 const Achievements = () => {
-  const achievements = [
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "Java Full Stack & DSA",
-      organization: "Apna College",
-      description: "Completed comprehensive certification covering full-stack Java development, data structures, and algorithms. Built a strong foundation in Spring Boot, MySQL, and problem-solving.",
-      color: "blue",
-      highlights: ["Java Full Stack", "Data Structures", "Algorithms", "Spring Boot"]
-    },
-    {
-      icon: <Trophy className="w-8 h-8" />,
-      title: "National Social Summit 2024",
-      organization: "IIT Roorkee",
-      description: "Participated in the prestigious National Social Summit at IIT Roorkee, engaging with industry leaders and fellow developers on technology's role in social impact and innovation.",
-      color: "green",
-      highlights: ["Industry Networking", "Social Impact Tech", "Innovation Discussions", "Professional Development"]
-    }
-  ];
-
-  const getColorClasses = (color: string) => {
-    const colors = {
-      blue: {
-        bg: "bg-blue-100",
-        text: "text-blue-600",
-        border: "border-blue-200",
-        accent: "bg-blue-500"
-      },
-      green: {
-        bg: "bg-green-100",
-        text: "text-green-600",
-        border: "border-green-200",
-        accent: "bg-green-500"
-      },
-      orange: {
-        bg: "bg-orange-100",
-        text: "text-orange-600",
-        border: "border-orange-200",
-        accent: "bg-orange-500"
-      }
-    };
-    return colors[color as keyof typeof colors];
-  };
-
   return (
-    <section id="achievements" className="py-20 bg-white">
+    <section id="achievements" className="py-20 bg-gray-50/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Achievements & Recognition</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Professional accomplishments, leadership roles, and continuous learning milestones
-            </p>
+          <div className="text-center mb-16 font-bold text-gray-900 mb-4 tracking-tight underline decoration-blue-500 decoration-wavy underline-offset-8">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Certifications & Achievements</h2>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {achievements.map((achievement, index) => {
-              const colorClasses = getColorClasses(achievement.color);
-              return (
-                <div
-                  key={index}
-                  className={`bg-white border ${colorClasses.border} rounded-xl p-8 hover:shadow-xl transition-all duration-300 group`}
-                >
-                  <div className={`w-16 h-16 ${colorClasses.bg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <div className={colorClasses.text}>
-                      {achievement.icon}
+          <div className="grid md:grid-cols-2 gap-8">
+            {achievementsData.map((item: any, index: number) => (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-blue-200/20 transition-all duration-500 group overflow-hidden relative"
+              >
+                {/* Decorative background icon */}
+                <div className="absolute -bottom-6 -right-6 text-blue-50/50 group-hover:text-blue-100/50 transition-colors duration-500 -rotate-12">
+                  <Award size={160} strokeWidth={1} />
+                </div>
+
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between mb-8">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform duration-500">
+                      <Trophy size={28} />
+                    </div>
+                    <div className="text-right">
+                      <div className="inline-flex items-center text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-2 border border-blue-100">
+                        {item.period}
+                      </div>
+                      <p className="text-sm font-bold text-gray-400 block tracking-widest uppercase">{item.organization}</p>
                     </div>
                   </div>
-
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {achievement.title}
+                  
+                  <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                    {item.title}
                   </h3>
                   
-                  <p className={`font-semibold mb-4 ${colorClasses.text}`}>
-                    {achievement.organization}
+                  <p className="text-gray-600 leading-relaxed mb-8 text-lg font-medium italic">
+                    {item.description}
                   </p>
                   
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {achievement.description}
-                  </p>
-                  
-                  <div className="space-y-3">
-                    <h4 className="text-sm font-semibold text-gray-900">Key Highlights:</h4>
-                    <div className="space-y-2">
-                      {achievement.highlights.map((highlight, highlightIndex) => (
-                        <div key={highlightIndex} className="flex items-center">
-                          <div className={`w-2 h-2 ${colorClasses.accent} rounded-full mr-3 flex-shrink-0`}></div>
-                          <span className="text-sm text-gray-700">{highlight}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {item.highlights.map((highlight: string, i: number) => (
+                      <span key={i} className="inline-flex items-center px-4 py-1.5 bg-gray-50 text-gray-600 text-xs font-bold rounded-lg border border-gray-100 group-hover:border-blue-200 group-hover:text-blue-600 transition-all duration-300">
+                        <Star size={12} className="mr-2 text-yellow-500" />
+                        {highlight}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Stats Section */}
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-2xl p-8">
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold mb-2">8+</div>
-                <p className="text-blue-100">Projects Completed</p>
               </div>
-              <div>
-                <div className="text-3xl font-bold mb-2">1+</div>
-                <p className="text-blue-100">Industry Experience</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-2">15+</div>
-                <p className="text-blue-100">Technologies Mastered</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-2">2</div>
-                <p className="text-blue-100">Major Certifications</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,54 +1,12 @@
 import React from 'react';
 import { Code, Server, Database, Settings, Lightbulb, Cloud } from 'lucide-react';
+import { skillsData } from '../data/portfolioData';
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      category: "Programming Languages",
-      description: "Proficient in high-level programming for building complex backend architectures and modern web interfaces.",
-      skills: ["Java", "JavaScript", "Core Java", "HTML", "XML", "CSS"],
-      color: "blue",
-      icon: <Code className="w-6 h-6" />
-    },
-    {
-      category: "Frameworks & Libraries",
-      description: "Extensive experience using enterprise-grade frameworks to build scalable and maintainable applications.",
-      skills: ["Spring Boot", "Spring MVC", "Spring JDBC", "Hibernate", "Servlets", "JDBC", "JSP"],
-      color: "green",
-      icon: <Server className="w-6 h-6" />
-    },
-    {
-      category: "Databases & Management",
-      description: "Strong foundation in data modeling, SQL query optimization, and managing large-scale relational databases.",
-      skills: ["SQL", "MySQL", "SQLite", "PostgreSQL", "Query Optimization"],
-      color: "orange",
-      icon: <Database className="w-6 h-6" />
-    },
-    {
-      category: "Tools & Platforms",
-      description: "Skilled in using industry-standard development environments for efficient coding and project management.",
-      skills: ["Eclipse", "IntelliJ IDEA", "VS Code", "Maven", "Tomcat", "Git", "Postman", "GitHub"],
-      color: "purple",
-      icon: <Settings className="w-6 h-6" />
-    },
-    {
-      category: "Cloud & Services",
-      description: "Knowledgeable in deploying applications and integrating cloud services for high availability.",
-      skills: ["AWS Basics", "Google Cloud", "RESTful Web Services", "Microservices Architecture"],
-      color: "cyan",
-      icon: <Cloud className="w-6 h-6" />
-    },
-    {
-      category: "Professional Concepts",
-      description: "Solid grasp of software development principles for creating robust and efficient code architectures.",
-      skills: ["OOPs", "MVC Architecture", "DSA", "API Development", "CRUD", "Exception Handling"],
-      color: "red",
-      icon: <Lightbulb className="w-6 h-6" />
-    }
-  ];
+  const { categories, proficiencies } = skillsData;
 
   const getColorClasses = (color: string) => {
-    const colors = {
+    const colors: { [key: string]: string } = {
       blue: "bg-blue-100 text-blue-800 border-blue-200",
       green: "bg-green-100 text-green-800 border-green-200",
       purple: "bg-purple-100 text-purple-800 border-purple-200",
@@ -56,11 +14,23 @@ const Skills = () => {
       cyan: "bg-cyan-100 text-cyan-800 border-cyan-200",
       red: "bg-red-100 text-red-800 border-red-200"
     };
-    return colors[color as keyof typeof colors];
+    return colors[color] || colors.blue;
+  };
+
+  const getIcon = (category: string) => {
+    switch (category) {
+      case "Programming Languages": return <Code className="w-6 h-6" />;
+      case "Frameworks & Libraries": return <Server className="w-6 h-6" />;
+      case "Databases & Management": return <Database className="w-6 h-6" />;
+      case "Tools & Platforms": return <Settings className="w-6 h-6" />;
+      case "Cloud & Services": return <Cloud className="w-6 h-6" />;
+      case "Professional Concepts": return <Lightbulb className="w-6 h-6" />;
+      default: return <Code className="w-6 h-6" />;
+    }
   };
 
   const getIconColor = (color: string) => {
-    const colors = {
+    const colors: { [key: string]: string } = {
       blue: "text-blue-600 bg-blue-50",
       green: "text-green-600 bg-green-50",
       purple: "text-purple-600 bg-purple-50",
@@ -68,7 +38,7 @@ const Skills = () => {
       cyan: "text-cyan-600 bg-cyan-50",
       red: "text-red-600 bg-red-50"
     };
-    return colors[color as keyof typeof colors];
+    return colors[color] || colors.blue;
   };
 
   return (
@@ -84,14 +54,14 @@ const Skills = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            {skillCategories.map((category, index) => (
+            {categories.map((category: any, index: number) => (
               <div
                 key={index}
                 className="bg-white p-10 rounded-3xl border border-gray-100 hover:shadow-2xl hover:shadow-blue-100/50 transition-all duration-500 group"
               >
                 <div className="flex items-start mb-8">
                   <div className={`p-4 rounded-2xl mr-5 transition-transform group-hover:scale-110 duration-500 ${getIconColor(category.color)}`}>
-                    {category.icon}
+                    {getIcon(category.category)}
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">
@@ -104,7 +74,7 @@ const Skills = () => {
                 </div>
                 
                 <div className="flex flex-wrap gap-2.5">
-                  {category.skills.map((skill, skillIndex) => (
+                  {category.skills.map((skill: string, skillIndex: number) => (
                     <span
                       key={skillIndex}
                       className={`px-5 py-2 rounded-xl text-sm font-semibold border transition-all duration-300 group-hover:border-blue-300 ${getColorClasses(category.color)}`}
@@ -122,14 +92,7 @@ const Skills = () => {
               Skill Proficiency Mapping
             </h3>
             <div className="grid md:grid-cols-2 gap-10">
-              {[
-                { skill: "Java Backend Development", level: 92, details: "Experienced in Spring Boot REST APIs and MVC pattern." },
-                { skill: "Database Architecture (SQL/MySQL)", level: 88, details: "Expert in schema design and JDBC connectivity." },
-                { skill: "API Integration & Development", level: 90, details: "Building high-performance RESTful web services." },
-                { skill: "Core Programming Logic", level: 85, details: "Strong foundation in OOP and DSA principles." },
-                { skill: "Frontend Integration", level: 78, details: "Hands-on with HTML5, CSS3, and JavaScript logic." },
-                { skill: "Development Toolchain (IDE/Git)", level: 85, details: "Proficient in Git-based collaboration and Maven." }
-              ].map((item, index) => (
+              {proficiencies.map((item: any, index: number) => (
                 <div key={index} className="space-y-4 group">
                   <div className="flex justify-between items-end">
                     <div>
@@ -154,4 +117,5 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Skills;
+

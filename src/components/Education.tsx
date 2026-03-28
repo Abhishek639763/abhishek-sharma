@@ -1,81 +1,43 @@
 import React from 'react';
-import { GraduationCap, BookOpen } from 'lucide-react';
+import { GraduationCap, Calendar, BookOpen } from 'lucide-react';
+import { educationData } from '../data/portfolioData';
 
 const Education = () => {
   return (
-    <section id="education" className="py-20 bg-gray-50">
+    <section id="education" className="py-20 bg-white">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Education & Learning</h2>
-            <p className="text-xl text-gray-600">
-              Continuous learning and skill development in software development
-            </p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">Education Background</h2>
+            <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full mb-6"></div>
           </div>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200"></div>
-            
-            <div className="relative space-y-12">
-              {/* Bachelor's Degree */}
-              <div className="flex items-start space-x-8">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg">
+          <div className="grid md:grid-cols-2 gap-8">
+            {educationData.map((edu: any, index: number) => (
+              <div
+                key={index}
+                className="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300 group"
+              >
+                <div className="flex items-start mb-6">
+                  <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                     <GraduationCap size={24} />
                   </div>
-                </div>
-                
-                <div className="flex-1 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        Bachelor of Information Technology
-                      </h3>
-                      <div className="flex items-center text-blue-600 font-semibold mb-2">
-                        <BookOpen size={18} className="mr-2" />
-                        Chaudhary Charan Singh University, Meerut, UP
-                      </div>
-                    </div>
-                    <div className="flex flex-col lg:items-end space-y-1">
-                      <div className="flex items-center text-gray-600 font-medium">
-                        2025
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <p className="text-gray-600 leading-relaxed">
-                    Foundation in Information Technology, Software Engineering, and Computer Science principles.
-                  </p>
-                </div>
-              </div>
-
-              {/* Intermediate */}
-              <div className="flex items-start space-x-8">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg">
-                    <BookOpen size={24} />
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{edu.degree}</h3>
+                    <p className="text-blue-600 font-semibold">{edu.school}</p>
                   </div>
                 </div>
                 
-                <div className="flex-1 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      Intermediate
-                    </h3>
-                    <div className="flex items-center text-green-600 font-semibold mb-2">
-                      <BookOpen size={18} className="mr-2" />
-                      Chandausi Inter College, Chandausi, UP
-                    </div>
-                  </div>
-                  <div className="flex flex-col lg:items-end space-y-1 mb-4">
-                      <div className="flex items-center text-gray-600 font-medium">
-                        2021
-                      </div>
-                  </div>
+                <div className="flex items-center text-gray-400 mb-4 text-sm font-medium">
+                  <Calendar size={16} className="mr-2" />
+                  {edu.period}
                 </div>
+                
+                <p className="text-gray-600 leading-relaxed">
+                  {edu.description}
+                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

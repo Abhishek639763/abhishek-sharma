@@ -1,6 +1,9 @@
 import { Download, Github, Linkedin, Mail } from 'lucide-react';
+import { personalInfo } from '../data/portfolioData';
 
 const Hero = () => {
+  const { name, title, summary, github, linkedin, email } = personalInfo;
+
   return (
     <section
       id="home"
@@ -15,15 +18,13 @@ const Hero = () => {
         <div className="max-w-4xl">
           <div className="animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
-              Hi, I'm <span className="text-blue-500">Abhishek Sharma</span>
+              Hi, I'm <span className="text-blue-500">{name}</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-gray-600 mb-6">
-              Software Engineer | Java Developer
+              {title}
             </h2>
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mb-10 leading-relaxed">
-              A passionate and detail-oriented Java Developer seeking to apply knowledge of Java, 
-              backend development, and database management. Proficient in building reliable and scalable applications using 
-              Spring Boot, JDBC, and MySQL. Eager to learn new technologies and contribute to real-world projects.
+              {summary}
             </p>
           </div>
 
@@ -47,7 +48,7 @@ const Hero = () => {
 
           <div className="animate-fade-in-up animation-delay-600 flex space-x-4">
             <a
-              href="https://github.com/Abhishek639763"
+              href={github}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-gray-50 text-gray-600 border border-gray-200 rounded-full hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-300 shadow-sm"
@@ -55,7 +56,7 @@ const Hero = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/abhishek639"
+              href={linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-gray-50 text-gray-600 border border-gray-200 rounded-full hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-300 shadow-sm"
@@ -63,7 +64,7 @@ const Hero = () => {
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:abhishekupadhyay639763@gmail.com"
+              href={`mailto:${email}`}
               className="p-3 bg-gray-50 text-gray-600 border border-gray-200 rounded-full hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-300 shadow-sm"
             >
               <Mail size={20} />
@@ -75,4 +76,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero;
