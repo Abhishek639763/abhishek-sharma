@@ -5,11 +5,11 @@ const Achievements = () => {
   const achievements = [
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Google Developers Group (GDG) Tech Head",
-      organization: "SCRIET",
-      description: "Leading technical initiatives and organizing developer events, workshops, and hackathons. Mentoring students in modern technologies and fostering a collaborative learning environment.",
+      title: "Java Full Stack & DSA",
+      organization: "Apna College",
+      description: "Completed comprehensive certification covering full-stack Java development, data structures, and algorithms. Built a strong foundation in Spring Boot, MySQL, and problem-solving.",
       color: "blue",
-      highlights: ["Technical Leadership", "Event Management", "Mentorship", "Community Building"]
+      highlights: ["Java Full Stack", "Data Structures", "Algorithms", "Spring Boot"]
     },
     {
       icon: <Trophy className="w-8 h-8" />,
@@ -18,14 +18,6 @@ const Achievements = () => {
       description: "Participated in the prestigious National Social Summit at IIT Roorkee, engaging with industry leaders and fellow developers on technology's role in social impact and innovation.",
       color: "green",
       highlights: ["Industry Networking", "Social Impact Tech", "Innovation Discussions", "Professional Development"]
-    },
-    {
-      icon: <Cloud className="w-8 h-8" />,
-      title: "AWS Solutions Architecture Job Simulation",
-      organization: "Amazon Web Services",
-      description: "Completed comprehensive AWS job simulation covering cloud architecture, scalability solutions, and best practices for enterprise-level cloud deployments.",
-      color: "orange",
-      highlights: ["Cloud Architecture", "Scalability Design", "AWS Services", "Best Practices"]
     }
   ];
 
@@ -122,8 +114,8 @@ const Achievements = () => {
                 <p className="text-blue-100">Technologies Mastered</p>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2">3</div>
-                <p className="text-blue-100">Major Achievements</p>
+                <div className="text-3xl font-bold mb-2">2</div>
+                <p className="text-blue-100">Major Certifications</p>
               </div>
             </div>
           </div>

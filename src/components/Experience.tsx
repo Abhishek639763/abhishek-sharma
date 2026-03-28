@@ -34,7 +34,7 @@ const Experience = () => {
                       </h3>
                       <div className="flex items-center text-blue-600 font-semibold mb-2">
                         <Building size={18} className="mr-2" />
-                        Elevate Pvt. Ltd.
+                        Elevate Labs
                       </div>
                     </div>
                     <div className="flex flex-col lg:items-end space-y-1">
@@ -61,44 +61,32 @@ const Experience = () => {
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                         <span className="text-gray-700">
-                          Developed backend systems using <strong>Spring Boot</strong> and <strong>JDBC</strong> for enterprise applications
+                          Developed Java backend applications with REST APIs using Spring Boot
                         </span>
                       </li>
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                         <span className="text-gray-700">
-                          Built and maintained <strong>REST APIs</strong> for various client applications
+                          Implemented database operations using JDBC and MySQL
                         </span>
                       </li>
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                         <span className="text-gray-700">
-                          Designed and implemented <strong>database schemas</strong> and performed CRUD operations using <strong>MySQL</strong>
+                          Designed relational databases and performed CRUD operations
                         </span>
                       </li>
                       <li className="flex items-start">
                         <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                         <span className="text-gray-700">
-                          Created desktop applications using <strong>JavaFX</strong> for improved user interfaces
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-700">
-                          Handled application <strong>debugging</strong>, <strong>testing</strong>, and <strong>deployment</strong> processes
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-700">
-                          Implemented <strong>task schedulers</strong> for automated system processes
+                          Applied OOP concepts, exception handling, and debugging techniques
                         </span>
                       </li>
                     </ul>
                   </div>
 
                   <div className="mt-6 flex flex-wrap gap-2">
-                    {['Spring Boot', 'JDBC', 'MySQL', 'JavaFX', 'REST APIs', 'Database Design', 'Java'].map((tech) => (
+                    {['Spring Boot', 'JDBC', 'MySQL', 'REST APIs', 'Java'].map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full"

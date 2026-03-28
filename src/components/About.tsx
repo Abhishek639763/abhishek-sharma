@@ -25,8 +25,8 @@ const About = () => {
                 building REST APIs, database management, and developing comprehensive web applications.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                During my internship at Elevate Pvt. Ltd., I worked on backend development projects, 
-                creating task schedulers, REST APIs, and management systems using Spring Boot, 
+                During my time at Elevate Labs, I worked on backend development projects, 
+                creating REST APIs and management systems using Spring Boot, 
                 JDBC, and MySQL. I've gained hands-on experience in database design, CRUD operations, 
                 debugging, and deployment.
               </p>
@@ -54,7 +54,7 @@ const About = () => {
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Database Design</h4>
                 <p className="text-gray-600 text-sm">
-                  Expertise in SQL, MongoDB, and database optimization
+                  Expertise in SQL, MySQL, and efficient database design
                 </p>
               </div>
 
