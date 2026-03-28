@@ -217,7 +217,7 @@ export const educationData = [
     degree: "Intermediate",
     school: "Chandausi Inter College, Chandausi, UP",
     period: "2021",
-    description: "Major in Science and Mathematics."
+    description: "Physics, Chemistry, Maths."
   }
 ];
 
